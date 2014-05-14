@@ -24,6 +24,18 @@ App.IndexController = Ember.Controller.extend({
         var request = $.post("/login", this.getProperties("username", "password"));
         request.then(this.success.bind(this), this.failure.bind(this));
     },
+  
+  register: function() {
+        this.setProperties({
+            registerFailed: false,
+            isProcessing: true
+        });
+
+        this.set("timeout", setTimeout(this.slowConnection.bind(this), 1));
+
+        var request = $.post("/register", this.getProperties("username", "password", "displayname"));
+        request.then(this.success.bind(this), this.failure.bind(this));
+    },
 
     success: function() {
         this.reset();
