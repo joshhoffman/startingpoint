@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>Starting Point!</title>
+    <!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="stylesheets/bootstrap.css">
+    <!--<link rel="stylesheet" href="stylesheets/style.css">-->
+
+</head>
+<body>
+
+<script type="text/x-handlebars" id="application" data-template-name="application">
+    <!-- TODO: Template will go in here I'm guessing -->
+    {{#link-to "index"}}Yeaaa{{/link-to}}
+    {{#link-to "register"}}
+    Register
+    {{/link-to}}
+    {{#link-to "login"}}
+    login
+    {{/link-to}}
+    {{user}}
+    {{outlet}}
+</script>
+
+<script type="text/x-handlebars" id="register" data-template-name="register">
+    <div id="registerModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    {{#link-to "index"}}
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    {{/link-to}}
+                    <h1 class="text-center">{{heading}}</h1>
+                </div>
+                <div class="modal-body">
+                    {{#if loginFailed}}
+                        <div class="alert">Invalid username or password.</div>
+                    {{/if}}
+                    <form class="form col-md-12 center-block" id="registerForm" action="/register" method="post">
+                        <div class="form-group">
+                            <input type="text" id="username" name="username" class="form-control input-lg" placeholder="Email" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="displayname" name="displayname" class="form-control input-lg" placeholder="Display Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="password" name="password" class="form-control input-lg" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="confirmpassword" name="confirmpassword" class="form-control input-lg" placeholder="Confirm Password">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-lg btn-block">Register</button>
+                            <span><a href="#">Need help?</a></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-12">
+                        {{#link-to "index"}}
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        {{/link-to}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-handlebars" id="login" data-template-name="login">
+    <div id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    {{#link-to "index"}}
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    {{/link-to}}
+                    <h1 class="text-center">{{heading}}</h1>
+                </div>
+                <div class="modal-body">
+                    {{#if loginFailed}}
+                        <div class="alert">Invalid username or password.</div>
+                    {{/if}}
+                    <form class="form col-md-12 center-block" id="loginForm" action="/login" method="post">
+                        <div class="form-group">
+                            <input type="text" id="username" name="username" class="form-control input-lg" placeholder="Email" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="password" name="password" class="form-control input-lg" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-lg btn-block">Login</button>
+                            <span class="pull-right"><a href="/register">Register</a></span><span><a href="#">Need help?</a></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-12">
+                        {{#link-to "index"}}
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        {{/link-to}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+<script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="http://momentjs.com/downloads/moment.min.js"></script>
+<script src="/lib/bootstrap/bootstrap.js"></script>
+<script src="/lib/Ember/handlebars-v1.3.0.js"></script>
+<script src="/lib/Ember/ember.js"></script>
+<script src="/lib/Ember/ember-data.js"></script>
+<script src="js/app/app.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/app/router.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/app/models.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/app/components.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/app/helpers.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/validate.js"></script>
+</body>
+</html>

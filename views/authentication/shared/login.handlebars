@@ -1,0 +1,31 @@
+<!--TODO: Adjust position of login modal-->
+<div id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="/"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button></a>
+                <h1 class="text-center">{{heading}}</h1>
+            </div>
+            <div class="modal-body">
+                <form class="form col-md-12 center-block" id="loginForm" action="/login" method="post">
+                    <div class="form-group">
+                        <input type="text" id="username" name="username" class="form-control input-lg" placeholder="Email" required autofocus="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" class="form-control input-lg" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-lg btn-block">Login</button>
+                        <span class="pull-right"><a href="/register">Register</a></span><span><a href="#">Need help?</a></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12">
+                    <a href="/"><button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/validate.js"></script>
