@@ -6,6 +6,53 @@ App = Ember.Application.create({
     LOG_TRANSITIONS: true
 });
 
+// change this once I know the routes in the server
+/*App.RegisterAdapter = DS.LSAdapter.extend({
+  namespace: 'starting'
+});*/
+
+App.RegisterController = Ember.Controller.extend({
+    // Do post here!
+    actions: {
+        registerAction: function() {
+            var store = this.store;
+            if(!store) { alert('store null'); }
+            var usr = store.createRecord('user', {
+                username : $("#username").val(),
+                displayname : $("#displayname").val(),
+                password : $("#password").val()
+            });
+            alert(store.find('user', '6mdal'));
+            usr.save();
+            this.transitionToRoute('index');
+        },
+
+        register: function() {
+            this.setProperties({
+                registerFailed: false,
+                isProcessing: true
+            });
+
+            this.set("timeout", setTimeout(this.slowConnection.bind(this), 1));
+
+            var request = $.post("/register", this.getProperties("username", "password", "displayname"));
+            request.then(this.success.bind(this), this.failure.bind(this));
+        },
+
+        success: function() {
+            this.reset();
+            // sign in logic
+            console.log('successful login');
+        },
+
+        failure: function() {
+            this.reset();
+            this.set("loginFailed", true);
+            console.log('failed login');
+        },
+    }
+});
+
 App.IndexController = Ember.Controller.extend({
 
     loginFailed: false,
@@ -23,30 +70,6 @@ App.IndexController = Ember.Controller.extend({
 
         var request = $.post("/login", this.getProperties("username", "password"));
         request.then(this.success.bind(this), this.failure.bind(this));
-    },
-  
-  register: function() {
-        this.setProperties({
-            registerFailed: false,
-            isProcessing: true
-        });
-
-        this.set("timeout", setTimeout(this.slowConnection.bind(this), 1));
-
-        var request = $.post("/register", this.getProperties("username", "password", "displayname"));
-        request.then(this.success.bind(this), this.failure.bind(this));
-    },
-
-    success: function() {
-        this.reset();
-        // sign in logic
-        console.log('successful login');
-    },
-
-    failure: function() {
-        this.reset();
-        this.set("loginFailed", true);
-        console.log('failed login');
     },
 
     slowConnection: function() {

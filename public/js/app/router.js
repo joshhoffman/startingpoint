@@ -8,6 +8,15 @@ App.Router.map(function() {
     this.resource('login', { path: "/login" })
 });
 
+App.RegisterRoute = Ember.Route.extend({
+    model: function() {
+        return this.store.createRecord('user');
+    },
+    setupController : function(controller, model) {
+        controller.set("model", model);
+    }
+});
+
 App.IndexRoute = Ember.Route.extend({
     // TODO: socket.io should be involved here somewhere
     activate: function() {

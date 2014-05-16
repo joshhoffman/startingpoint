@@ -36,11 +36,17 @@
                     {{/link-to}}
                     <h1 class="text-center">{{heading}}</h1>
                 </div>
-                <div class="modal-body">
+                {{!--<form class="form col-md-12 center-block">
+                <div class="form-group">
+                    {{input classNames="form-control input-lg" valueBinding="model.username"}}
+                </div>
+                </form>
+                <button {{action registerAction target="controller"}}>Submit</button>--}}
+               <div class="modal-body">
                     {{#if loginFailed}}
                         <div class="alert">Invalid username or password.</div>
                     {{/if}}
-                    <form class="form col-md-12 center-block" id="registerForm" action="/register" method="post">
+                    <form class="form col-md-12 center-block" id="registerForm">
                         <div class="form-group">
                             <input type="text" id="username" name="username" class="form-control input-lg" placeholder="Email" autofocus>
                         </div>
@@ -54,7 +60,7 @@
                             <input type="password" id="confirmpassword" name="confirmpassword" class="form-control input-lg" placeholder="Confirm Password">
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary btn-lg btn-block">Register</button>
+                            <button {{action registerAction target="controller"}} class="btn btn-primary btn-lg btn-block">Register</button>
                             <span><a href="#">Need help?</a></span>
                         </div>
                     </form>
@@ -116,8 +122,9 @@
 <script src="http://momentjs.com/downloads/moment.min.js"></script>
 <script src="/lib/bootstrap/bootstrap.js"></script>
 <script src="/lib/Ember/handlebars-v1.3.0.js"></script>
-<script src="/lib/Ember/ember.js"></script>
+<script src="http://builds.emberjs.com/tags/v1.5.1/ember.js"></script>
 <script src="/lib/Ember/ember-data.js"></script>
+<script src="/lib/Ember/local-storage.js"></script>
 <script src="js/app/app.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/app/router.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/app/models.js" type="text/javascript" charset="utf-8"></script>

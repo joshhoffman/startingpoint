@@ -10,6 +10,9 @@ App.Message = Ember.Object.extend({
     timeStamp: null
 });
 
-App.User = Ember.Object.extend({
+App.User = DS.Model.extend({
     // TODO: Create user model
+    username : DS.attr('string'),
+    displayname: DS.attr('string'),
+    password: DS.attr('string')
 });
