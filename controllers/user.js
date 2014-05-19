@@ -3,7 +3,7 @@
  * GET users listing.
  */
 
-exports.user = function(req, res) {
+exports.users = function(req, res) {
     res.render('authentication/ViewUser', { user: req.user});
 };
 

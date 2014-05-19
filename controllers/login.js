@@ -30,6 +30,8 @@ exports.loginPost = function(req, res, next) {
 
 exports.registerPost = function(req, res) {
     console.log('register');
+    console.log('test ' + req.body);
+    console.log('test2 ' + req.body.confirmpassword);
 
     user.userModel.findOne({username: req.body.username }, function(err, foundUser) {
         if(!foundUser && !err && req.body.password == req.body.confirmpassword) {
@@ -48,14 +50,17 @@ exports.registerPost = function(req, res) {
                 }
                 req.logIn(usr, function (err) {
                     // TODO: Gracefully handle failure here
-                    res.redirect('/login');
+                    res.send({"status":"failed"});
                 });
-                res.redirect('/users');
+                res.send({"status":"success"});
             });
         }
         else {
+            if(err) {
+                console.log("!!! error");
+            }
             console.log('register failed. user already exists');
-            res.redirect('/register');
+            res.send({"status":"failed"});
         }
     });
 };
