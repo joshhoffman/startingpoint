@@ -1,0 +1,14 @@
+unneeded packages probably
+
+
+
+    "nopt": "2.2.x",
+    "shelljs": "0.2.x",
+    "express3-handlebars": "*",
+    "coffee-script": "1.7.x",
+    "js-yaml": "3.0.x",
+    
+    
+    
+    "less": "1.7.x",
+    "grunt-contrib-less": "*",

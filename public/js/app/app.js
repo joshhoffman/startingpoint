@@ -5,9 +5,10 @@
 App = Ember.Application.create({
     LOG_TRANSITIONS: true,
     ready: function() {
-        var template = Ember.TEMPLATES["templates/application"];
-        var html = template();
-        $('body').append(html);
+        /*var template = Ember.TEMPLATES["templates/application"];
+        var html = template();*/
+        console.log('ready');
+        $('body').append(Ember.TEMPLATES["application"]);
     }
 });
 

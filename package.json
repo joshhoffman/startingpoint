@@ -12,12 +12,10 @@
   "dependencies": {
     "express": "4.x.x",
     "less-middleware": "*",
-    "express3-handlebars": "*",
     "mongoose": "*",
-    "passport-local": "1.0.x",
+    "passport-local": "1.x.x",
     "passport": "0.2.x",
     "connect-flash": "0.1.x",
-    "coffee-script": "1.7.x",
     "connect-ensure-login": "*",
     "password-hash": "*",
     "socket.io": "*",
@@ -39,12 +37,10 @@
     "grunt-cli": "*",
     "grunt-cafe-mocha": "*",
     "grunt-contrib-jshint": "*",
-    "js-yaml": "3.0.x",
-    "nopt": "2.2.x",
-    "shelljs": "0.2.x",
-    "less": "1.7.x",
-    "grunt-contrib-less": "*",
     "grunt-contrib-watch": "*",
-    "grunt-ember-templates": "*"
+    "ember-template-compiler": "*",
+    "grunt-ember-templates": "*",
+    "less": "1.7.x",
+    "grunt-contrib-less": "*"
   }
 }
