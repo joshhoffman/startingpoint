@@ -3,7 +3,12 @@
  */
 
 App = Ember.Application.create({
-    LOG_TRANSITIONS: true
+    LOG_TRANSITIONS: true,
+    ready: function() {
+        var template = Ember.TEMPLATES["templates/application"];
+        var html = template();
+        $('body').append(html);
+    }
 });
 
 // change this once I know the routes in the server
