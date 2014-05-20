@@ -8,7 +8,7 @@ exports.users = function(req, res) {
 };
 
 exports.userGet = function(req, res) {
-    if(req.user != null)
+    if(req.user !== null)
     {
         req.user.password = '';
         res.json(req.user);

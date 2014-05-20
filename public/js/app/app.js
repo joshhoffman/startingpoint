@@ -38,8 +38,9 @@ App.RegisterController = Ember.Controller.extend({
             console.log("testing " + data);
             //this.setProperties(data);
             //var request = $.post("/register", this.getProperties("username", "password", "displayname"));
-            var request = $.post("/register", data, function(resp) {alert(resp);});
-            //request.then(this.success.bind(this), this.failure.bind(this));
+            //var request = $.post("/register", data, function(resp) {alert(resp);});
+            var request = $.post("/register", data);
+            request.then(this.success.bind(this), this.failure.bind(this));
             
             /*$.ajax({
                 type: 'POST',
