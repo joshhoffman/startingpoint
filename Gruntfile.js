@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         'grunt-contrib-jshint',
         'grunt-contrib-less',
         'grunt-contrib-watch',
-        'grunt-notify'
+        'grunt-ember-templates'
     ].forEach(function(task) {
             grunt.loadNpmTasks(task);
         });
@@ -37,6 +37,16 @@ module.exports = function(grunt) {
                 files: {"public/stylesheets/style.css": "public/stylesheets/style.less"}
             }
         },
+        emberTemplates: {
+            compile: {
+                options: {
+                    templateBasePath: /views\//
+                },
+                files: {
+                    "public/js/app/templates/templates.js": ["views/templates/**/*.handlebars"]
+                }
+            }
+        },
         watch: {
             scripts: {
                 files: [
@@ -47,12 +57,14 @@ module.exports = function(grunt) {
                     'public/qa/**/*.js',
                     'public/js/**/*.js',
                     'qa/**/*.js',
-                    'public/stylesheets/style.less'
+                    'public/stylesheets/style.less',
+                    'templates/**/*.hbs'
                 ],
                 tasks: [
                     'cafemocha',
                     'jshint',
-                    'less'
+                    'less',
+                    'emberTemplates'
                 ]
             }
         },
@@ -64,5 +76,5 @@ module.exports = function(grunt) {
     });
 
     //grunt.registerTask('default', ['cafemocha', 'jshint', 'less', 'notify:cafemocha'])
-    grunt.registerTask('default', ['cafemocha', 'jshint', 'less'])
+    grunt.registerTask('default', ['cafemocha', 'jshint', 'less', 'emberTemplates'])
 }

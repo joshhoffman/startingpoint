@@ -5,7 +5,7 @@ App.Router.map(function() {
     this.resource('index', {path:"/"});
     //this.resource('chat', { path:"/" });
     this.resource('register', {path: "/register" });
-    this.resource('login', { path: "/login" })
+    this.resource('login', { path: "/login" });
 });
 
 App.RegisterRoute = Ember.Route.extend({
@@ -49,7 +49,7 @@ App.IndexRoute = Ember.Route.extend({
                     newMessage = App.Message.create({
                         text: message,
                         timeStamp: Date.now()
-                    })
+                    });
                     messages.pushObject(newMessage);
                 }
             }

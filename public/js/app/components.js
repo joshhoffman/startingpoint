@@ -34,4 +34,4 @@ App.ChatBoxComponent = Ember.Component.extend({
             this.set('message', '');
         }
     }
-})
+});
