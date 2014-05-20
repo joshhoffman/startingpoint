@@ -23,8 +23,12 @@ module.exports = function(grunt) {
                 'Grunt-file.js',
                 'public/qa/**/*.js',
                 'public/js/**/*.js',
-                'qa/**/*.js',
-                'routes/**/*.js'
+                'routes/**/*.js',
+                'controllers/**/*.js',
+                'Socket/**/*.js',
+                'models/**/*.js',
+                'lib/**/*.js',
+                '!public/js/app/templates/*.js'
             ],
             qa: [
                 'Grunt-file.js',
@@ -40,6 +44,7 @@ module.exports = function(grunt) {
         emberTemplates: {
             compile: {
                 options: {
+                    amd: false,
                     templateBasePath: /views\/templates\//
                 },
                 files: {

@@ -8,7 +8,7 @@ App = Ember.Application.create({
         /*var template = Ember.TEMPLATES["templates/application"];
         var html = template();*/
         console.log('ready');
-        $('body').append(Ember.TEMPLATES["application"]);
+        $('body').append(Ember.TEMPLATES.application);
     }
 });
 
