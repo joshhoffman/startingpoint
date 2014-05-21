@@ -1,6 +1,16 @@
-var login = require('../controllers/login');
-var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
+login = require '../controllers/login'
+ensureLoggedIn = require 'connect-ensure-login'
 
+module.exports = (app) ->
+    app.post '/register', login.registerPost
+    app.post '/login', login.loginPost
+    
+    app.get '/logout', ensureLoggedIn('/'), (req, res) ->
+        console.log 'logging out'
+        req.logOut()
+        console.log 'logged out'
+        res.redirect '/'
+###
 module.exports = function(app) {
     app.post('/register', login.registerPost);
     app.get('/login', login.login);
@@ -13,3 +23,4 @@ module.exports = function(app) {
     app.get('/register', login.register);
     app.post('/login', login.loginPost);
 };
+###
