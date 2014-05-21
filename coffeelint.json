@@ -1,0 +1,9 @@
+{
+    "no_tabs": {
+        "level": "error"
+    },
+    "indentation": {
+        "value": 4,
+        "level": "error"
+    }
+}

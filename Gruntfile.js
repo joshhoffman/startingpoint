@@ -27,6 +27,9 @@ module.exports = function(grunt) {
             }
         },
         coffeelint: {
+            options: {
+                configFile: 'coffeelint.json'
+              },
               app: ['test/*.coffee']
           },
         jshint: {
