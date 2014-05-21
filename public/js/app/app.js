@@ -8,7 +8,7 @@ App = Ember.Application.create({
         /*var template = Ember.TEMPLATES["templates/application"];
         var html = template();*/
         console.log('ready');
-        $('body').append(Ember.TEMPLATES.application);
+        //$('body').append(Ember.TEMPLATES.application());
     }
 });
 
@@ -19,6 +19,7 @@ App = Ember.Application.create({
 
 App.RegisterController = Ember.Controller.extend({
     // Do post here!
+    template: Ember.TEMPLATES.Register,
     actions: {
         registerAction: function() {
             var store = this.store;
@@ -85,7 +86,7 @@ App.RegisterController = Ember.Controller.extend({
             this.set("loginFailed", true);
             alert('fail');
             console.log('failed login');
-        },
+        }
     }
 });
 
@@ -95,6 +96,7 @@ App.IndexController = Ember.Controller.extend({
     isProcessing: false,
     isSlowConnection: false,
     timeout: null,
+    template: Ember.TEMPLATES.application,
 
     login: function() {
         this.setProperties({

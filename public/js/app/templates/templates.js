@@ -6,7 +6,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   
-  data.buffer.push("Yeaaa");
+  data.buffer.push("\n        Yeaaa\n    ");
   }
 
 function program3(depth0,data) {

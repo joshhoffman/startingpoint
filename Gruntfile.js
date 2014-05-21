@@ -20,18 +20,17 @@ module.exports = function(grunt) {
         jshint: {
             app: [
                 'app.js',
-                'Grunt-file.js',
-                'public/qa/**/*.js',
-                'public/js/**/*.js',
                 'routes/**/*.js',
                 'controllers/**/*.js',
                 'Socket/**/*.js',
                 'models/**/*.js',
-                'lib/**/*.js',
+                'lib/**/*.js'
+                ],
+            ember: [
+                'public/js/**/*.js',
                 '!public/js/app/templates/*.js'
             ],
             qa: [
-                'Grunt-file.js',
                 'public/qa/**/*.js',
                 'qa/**/*.js'
             ]
@@ -58,7 +57,6 @@ module.exports = function(grunt) {
                     'app.js',
                     'routes/**/*.js',
                     'controllers/**/*.js',
-                    'Grunt-file.js',
                     'public/qa/**/*.js',
                     'public/js/**/*.js',
                     'qa/**/*.js',
