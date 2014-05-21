@@ -29,7 +29,8 @@ module.exports = function(grunt) {
                     'routes/user.js': 'routes/user.coffee',
                     'models/user.js': 'models/user.coffee',
                     'socket/socket.js': 'socket/socket.coffee',
-                    'lib/config/configure.js': 'lib/config/configure.coffee'
+                    'lib/config/configure.js': 'lib/config/configure.coffee',
+                    'lib/config/configureRoutes.js': 'lib/config/configureRoutes.coffee'
                 }
             }
         },
