@@ -22,7 +22,8 @@ module.exports = function(grunt) {
         coffee: {
             compile: {
                 files: {
-                    'test/test.js': 'test/test.coffee'
+                    'test/test.js': 'test/test.coffee',
+                    'appCoffee.js': 'app.coffee'
                 }
             }
         },
@@ -30,7 +31,10 @@ module.exports = function(grunt) {
             options: {
                 configFile: 'coffeelint.json'
               },
-              app: ['test/*.coffee']
+              app: [
+                  'test/*.coffee',
+                  '*.coffee'
+              ]
           },
         jshint: {
             app: [
@@ -74,15 +78,38 @@ module.exports = function(grunt) {
                     'controllers/**/*.js',
                     'public/qa/**/*.js',
                     'public/js/**/*.js',
-                    'qa/**/*.js',
-                    'public/stylesheets/style.less',
-                    'templates/**/*.hbs'
+                    'qa/**/*.js'
                 ],
                 tasks: [
                     'cafemocha',
+                    'jshint'
+                ]
+            },
+            lessCompile: {
+                files: [
+                    'public/stylesheets/style.less'
+                ],
+                tasks: [
+                    'less'
+                ]
+            },
+            ember: {
+                files: [
+                    'templates/**/*.hbs'
+                ],
+                tasks: [
                     'jshint',
-                    'less',
                     'emberTemplates'
+                ]
+            },
+            coffee: {
+                files: [
+                    'test/*.coffee',
+                    '*.coffee'
+                ],
+                tasks: [
+                    'coffeelint',
+                    'coffee'
                 ]
             }
         },
