@@ -5,7 +5,9 @@ module.exports = function(grunt) {
         'grunt-contrib-jshint',
         'grunt-contrib-less',
         'grunt-contrib-watch',
-        'grunt-ember-templates'
+        'grunt-ember-templates',
+        'grunt-contrib-coffee',
+        'grunt-coffeelint'
     ].forEach(function(task) {
             grunt.loadNpmTasks(task);
         });
@@ -17,6 +19,16 @@ module.exports = function(grunt) {
                 options: {ui: 'tdd'}
             }
         },
+        coffee: {
+            compile: {
+                files: {
+                    'test/test.js': 'test/test.coffee'
+                }
+            }
+        },
+        coffeelint: {
+              app: ['test/*.coffee']
+          },
         jshint: {
             app: [
                 'app.js',
@@ -79,5 +91,5 @@ module.exports = function(grunt) {
     });
 
     //grunt.registerTask('default', ['cafemocha', 'jshint', 'less', 'notify:cafemocha'])
-    grunt.registerTask('default', ['cafemocha', 'jshint', 'less', 'emberTemplates'])
+    grunt.registerTask('default', ['cafemocha', 'jshint', 'less', 'emberTemplates', 'coffee', 'coffeelint'])
 }

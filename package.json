@@ -29,18 +29,20 @@
     "body-parser": "*"
   },
   "devDependencies": {
-    "mocha": "*",
     "chai": "1.9.x",
-    "zombie": "2.0.x",
-    "jshint": "2.x.x",
-    "grunt": "*",
-    "grunt-cli": "*",
-    "grunt-cafe-mocha": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-watch": "*",
     "ember-template-compiler": "*",
+    "grunt": "*",
+    "grunt-cafe-mocha": "*",
+    "grunt-cli": "*",
+    "grunt-coffeelint": "0.0.10",
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-watch": "*",
     "grunt-ember-templates": "*",
+    "jshint": "2.x.x",
     "less": "1.7.x",
-    "grunt-contrib-less": "*"
+    "mocha": "*",
+    "zombie": "2.0.x"
   }
 }
