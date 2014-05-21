@@ -1,11 +1,15 @@
-var io = null;
+(function() {
+  var io;
 
-exports.onConnection = function(socket) {
-};
+  io = null;
 
-exports.send = function(data) {
-};
+  exports.onConnection = function(socket) {};
 
-exports.setIO = function(socket) {
+  exports.send = function(data) {};
+
+  exports.setIO = function(socket) {
     io = socket;
-};
+    return true;
+  };
+
+}).call(this);

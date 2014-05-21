@@ -32,6 +32,7 @@ data
 app.js
 routes/*.js
 models/*.js
+socket/*.js
 
 #test stuff
 test
