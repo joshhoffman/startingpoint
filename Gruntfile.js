@@ -28,7 +28,8 @@ module.exports = function(grunt) {
                     'routes/login.js': 'routes/login.coffee',
                     'routes/user.js': 'routes/user.coffee',
                     'models/user.js': 'models/user.coffee',
-                    'socket/socket.js': 'socket/socket.coffee'
+                    'socket/socket.js': 'socket/socket.coffee',
+                    'lib/config/configure.js': 'lib/config/configure.coffee'
                 }
             }
         },
@@ -41,17 +42,18 @@ module.exports = function(grunt) {
                   '*.coffee',
                   'routes/*.coffee',
                   'models/*.coffee',
-                  'socket/*.coffee'
+                  'socket/*.coffee',
+                  'lib/**/*.coffee'
               ]
           },
         jshint: {
             app: [
-                'app.js',
-                'routes/**/*.js',
-                'controllers/**/*.js',
-                'Socket/**/*.js',
-                'models/**/*.js',
-                'lib/**/*.js'
+                //'app.js',
+                //'routes/**/*.js',
+                'controllers/**/*.js'
+                //'Socket/**/*.js',
+                //'models/**/*.js',
+                //'lib/**/*.js'
                 ],
             ember: [
                 'public/js/**/*.js',
@@ -81,11 +83,11 @@ module.exports = function(grunt) {
         watch: {
             scripts: {
                 files: [
-                    'app.js',
-                    'routes/**/*.js',
+                    //'app.js',
+                    //'routes/**/*.js',
                     'controllers/**/*.js',
                     'public/qa/**/*.js',
-                    'public/js/**/*.js',
+                    //'public/js/**/*.js',
                     'qa/**/*.js'
                 ],
                 tasks: [
@@ -116,7 +118,8 @@ module.exports = function(grunt) {
                     '*.coffee',
                     'routes/*.coffee',
                     'models/*.coffee',
-                    'socket/*.coffee'
+                    'socket/*.coffee',
+                    'lib/**/*.coffee'
                 ],
                 tasks: [
                     'coffeelint',

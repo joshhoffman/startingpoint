@@ -1,5 +1,6 @@
 login = require '../controllers/login'
 ensureLoggedIn = require 'connect-ensure-login'
+ensureLoggedIn = ensureLoggedIn.ensureLoggedIn
 
 module.exports = (app) ->
     app.post '/register', login.registerPost
