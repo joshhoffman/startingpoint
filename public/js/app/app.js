@@ -19,7 +19,7 @@ App = Ember.Application.create({
 
 App.RegisterController = Ember.Controller.extend({
     // Do post here!
-    template: Ember.TEMPLATES.Register,
+    //template: Ember.TEMPLATES.Register,
     actions: {
         registerAction: function() {
             var store = this.store;
@@ -91,12 +91,10 @@ App.RegisterController = Ember.Controller.extend({
 });
 
 App.IndexController = Ember.Controller.extend({
-
     loginFailed: false,
     isProcessing: false,
     isSlowConnection: false,
     timeout: null,
-    template: Ember.TEMPLATES.application,
 
     login: function() {
         this.setProperties({
@@ -122,4 +120,12 @@ App.IndexController = Ember.Controller.extend({
         });
     }
 
+});
+
+App.IndexView = Ember.View.extend({
+    template: Ember.TEMPLATES.application
+});
+
+App.RegisterView = Ember.View.extend({
+    template: Ember.TEMPLATES.register
 });

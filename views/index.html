@@ -13,6 +13,20 @@
 </head>
 <body>
 
+<script type="text/x-handlebars" id="application" data-template-name="application">
+    <!-- TODO: Template will go in here I'm guessing -->
+    {{#link-to "index"}}
+    Yeaaa
+    {{/link-to}}
+    {{#link-to "register"}}
+    Register
+    {{/link-to}}
+    {{#link-to "login"}}
+    Login
+    {{/link-to}}
+    {{!--{{user}}--}}
+    {{outlet}}
+</script>
 
 <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
