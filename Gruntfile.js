@@ -23,7 +23,8 @@ module.exports = function(grunt) {
             compile: {
                 files: {
                     'test/test.js': 'test/test.coffee',
-                    'app.js': 'app.coffee'
+                    'app.js': 'app.coffee',
+                    'routes/index.js': 'routes/index.coffee'
                 }
             }
         },
@@ -33,7 +34,8 @@ module.exports = function(grunt) {
               },
               app: [
                   'test/*.coffee',
-                  '*.coffee'
+                  '*.coffee',
+                  'routes/*.coffee'
               ]
           },
         jshint: {
@@ -105,7 +107,8 @@ module.exports = function(grunt) {
             coffee: {
                 files: [
                     'test/*.coffee',
-                    '*.coffee'
+                    '*.coffee',
+                    'routes/*.coffee'
                 ],
                 tasks: [
                     'coffeelint',
