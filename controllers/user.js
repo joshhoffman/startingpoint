@@ -4,7 +4,8 @@
  */
 
 exports.users = function(req, res) {
-    res.render('authentication/ViewUser', { user: req.user});
+    //res.render('authentication/ViewUser', { user: req.user});
+    res.end({status: 'fail'});
 };
 
 exports.userGet = function(req, res) {

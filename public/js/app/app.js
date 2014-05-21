@@ -20,6 +20,7 @@ App = Ember.Application.create({
 App.RegisterController = Ember.Controller.extend({
     // Do post here!
     //template: Ember.TEMPLATES.Register,
+    registerFailed: false,
     actions: {
         registerAction: function() {
             var store = this.store;
@@ -35,31 +36,30 @@ App.RegisterController = Ember.Controller.extend({
                 password : pwd,
                 confirmpassword : confirmpwd
             });
-            //alert(store.find('user', '6mdal'));
+
             usr.save();
             var data = {username: usrname, displayname: dispname, password: pwd, confirmpassword: confirmpwd};
-            var sdata = JSON.stringify(data);
             console.log(data);
-            /*$.post("/register", data);//.then(this.success.bind(this), this.failure.bind(this));*/
             
             console.log("testing " + data);
-            //this.setProperties(data);
-            //var request = $.post("/register", this.getProperties("username", "password", "displayname"));
-            //var request = $.post("/register", data, function(resp) {alert(resp);});
-            var request = $.post("/register", data);
-            request.then(this.success.bind(this), this.failure.bind(this));
+            var request = $.post("/register", data, function(resp) {
+                //resp = resp+"}";
+                console.log(resp);
+                //var resp2=JSON.parse(resp);
+                var resp2 = resp;
+                console.log('response is ' + resp2);
+                console.log(resp2.status);
+                if(resp2.status === 'success') {
+                    this.transitionToRoute('index');
+                } else {
+                    console.log('fail');
+                    
+                    //this.set('registerFailed', true);
+                    this.transitionToRoute('register');
+                }
+            });
             
-            /*$.ajax({
-                type: 'POST',
-                url: '/register/',
-                data: data, // or JSON.stringify ({name: 'jonas'}),
-                success: function() { alert('success'); },
-                failure: function() { alert('failure'); },
-                contentType: "application/json",
-                dataType: 'json'
-            });*/
             
-            this.transitionToRoute('index');
         },
 
         register: function() {
@@ -74,11 +74,11 @@ App.RegisterController = Ember.Controller.extend({
             request.then(this.success.bind(this), this.failure.bind(this));
         },
 
-        success: function() {
+        success: function(resp) {
             this.reset();
-            // sign in logic
-            alert('success');
-            console.log('successful login');
+            // register logic
+            alert('success ' + resp.status);
+            console.log('successful register');
         },
 
         failure: function() {

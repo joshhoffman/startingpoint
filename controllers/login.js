@@ -5,6 +5,8 @@ var user = require('../models/User');
 var hashPassword = require('password-hash');
 var passport = require('passport');
 
+var sify = function(s) { return JSON.stringify(s); };
+
 exports.login = function(req, res){
     res.render('authentication/shared/login', { formPath: 'login', heading: "Please log in" });
 };
@@ -50,17 +52,22 @@ exports.registerPost = function(req, res) {
                 }
                 req.logIn(usr, function (err) {
                     // TODO: Gracefully handle failure here
-                    res.send({"status":"failed"});
+                    //res.writeHead(200, {"Content-Type": "application/json"});
+                    res.end(sify({"status":"failed"}));
+                    return;
                 });
-                res.send({"status":"success"});
+                //res.writeHead(200, {"Content-Type": "application/json"});
+                console.log(sify({"status":"success"}));
+                res.end(sify({"status":"success"}));
             });
         }
         else {
             if(err) {
                 console.log("!!! error");
             }
+            res.writeHead(200, {"Content-Type": "application/json"});
             console.log('register failed. user already exists');
-            res.send({"status":"failed"});
+            res.end(sify({"status":"failed"}));
         }
     });
 };

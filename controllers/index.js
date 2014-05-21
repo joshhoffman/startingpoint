@@ -10,22 +10,10 @@ var date = new Date();
 
 exports.indexold = function(req, res){
     if(req.isAuthenticated()) {
-        res.render('index', { title: 'Dogendar', user: req.user });
+        res.render('index', { title: 'Starting Point', user: req.user });
     }
     else {
-        res.render('index', { title: 'Dogendar', user: null });
-        /*if(file === null)
-        {
-            console.log(__dirname + '/../views/Ember/index.html');
-            fs.readFile(__dirname + '/../views/Ember/index.html', 'utf8', function(err, text) {
-                file = text;
-                res.send(file);
-            });
-        }
-        else
-        {
-            res.send(file);
-        }*/
+        res.render('index', { title: 'Starting Point', user: null });
     }
 };
 
@@ -39,13 +27,13 @@ exports.index = function(req, res) {
             console.log(__dirname + '/../views/index.html');
             fs.readFile(__dirname + '/../views/index.html', 'utf8', function(err, text) {
                 file = text;
-                res.send(file);
+                res.end(file);
             });
         }
         else
         {
             console.log('cached');
-            res.send(file);
+            res.end(file);
         }
     });
 };

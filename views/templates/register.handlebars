@@ -15,7 +15,7 @@
                 </form>
                 <button {{action registerAction target="controller"}}>Submit</button>--}}
                 <div class="modal-body">
-                    {{#if loginFailed}}
+                    {{#if registerFailed}}
                         <div class="alert">Invalid username or password.</div>
                     {{/if}}
                     <form class="form col-md-12 center-block" id="registerForm">
