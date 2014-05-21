@@ -3,7 +3,6 @@
  * Module dependencies.
  */
 var express = require('express');
-var http = require('http');
 var mongoose = require('mongoose');
 
 var config = require('./lib/config/configure');
@@ -18,16 +17,19 @@ config.config(app);
 configRoutes.configRoutes(app);
 
 // TODO: Change DB name
-mongoose.connect('mongodb://localhost/StartingPont');
+mongoose.connect('mongodb://localhost/StartingPoint');
 
 // uncomment this block to start up with node instead of socket.io
 /*http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });*/
 
-var port = app.listen(app.get('port'));
+var port = app.listen(app.get('port'), function() {
+    console.log('connected on port ' + app.get('port'));
+});
+//var port = app.get('port');
 
-var io = require('socket.io').listen(port, function() {
+/*var io = require('socket.io').listen(port, function() {
     console.log('Express server listening on port ' + app.get('port'));
 });
 
@@ -38,4 +40,4 @@ io.sockets.on('connection', function (socket) {
     socket.on('send', function (data) {
         io.sockets.emit('message', data);
     });
-});
+});*/
