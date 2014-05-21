@@ -28,5 +28,8 @@ node_modules
 # mongo data
 data
 
+# ignore generated javascript files
+app.js
+
 #test stuff
 test
