@@ -25,7 +25,8 @@ module.exports = function(grunt) {
                     'test/test.js': 'test/test.coffee',
                     'app.js': 'app.coffee',
                     'routes/index.js': 'routes/index.coffee',
-                    'routes/login.js': 'routes/login.coffee'
+                    'routes/login.js': 'routes/login.coffee',
+                    'routes/user.js': 'routes/user.coffee'
                 }
             }
         },
