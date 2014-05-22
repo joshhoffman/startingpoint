@@ -32,7 +32,7 @@ data
 app.js
 routes/*.js
 models/*.js
-Socket/*.js
+socket/*.js
 lib/config/*.js
 controllers/*.js
 

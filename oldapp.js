@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 var config = require('./lib/config/configure');
 var configRoutes = require('./lib/config/configureRoutes');
 
-var socket = require('./Socket/Socket');
+var socket = require('./socket/Socket');
 
 var app = express();
 
