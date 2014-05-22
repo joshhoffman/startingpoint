@@ -31,7 +31,8 @@ module.exports = function(grunt) {
                     'socket/socket.js': 'socket/socket.coffee',
                     'lib/config/configure.js': 'lib/config/configure.coffee',
                     'lib/config/configureRoutes.js': 'lib/config/configureRoutes.coffee',
-                    'lib/config/configurePassport.js': 'lib/config/configurePassport.coffee'
+                    'lib/config/configurePassport.js': 'lib/config/configurePassport.coffee',
+                    'controllers/index.js': 'controllers/index.coffee'
                 }
             }
         },
@@ -45,7 +46,8 @@ module.exports = function(grunt) {
                   'routes/*.coffee',
                   'models/*.coffee',
                   'socket/*.coffee',
-                  'lib/**/*.coffee'
+                  'lib/**/*.coffee',
+                  'controllers/*.coffee'
               ]
           },
         jshint: {
@@ -121,7 +123,8 @@ module.exports = function(grunt) {
                     'routes/*.coffee',
                     'models/*.coffee',
                     'socket/*.coffee',
-                    'lib/**/*.coffee'
+                    'lib/**/*.coffee',
+                    'controllers/*.coffee'
                 ],
                 tasks: [
                     'coffeelint',
