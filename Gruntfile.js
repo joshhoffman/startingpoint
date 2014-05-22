@@ -33,7 +33,8 @@ module.exports = function(grunt) {
                     'lib/config/configureRoutes.js': 'lib/config/configureRoutes.coffee',
                     'lib/config/configurePassport.js': 'lib/config/configurePassport.coffee',
                     'controllers/index.js': 'controllers/index.coffee',
-                    'controllers/user.js': 'controllers/user.coffee'
+                    'controllers/user.js': 'controllers/user.coffee',
+                    'controllers/login.js': 'controllers/login.coffee'
                 }
             }
         },
@@ -86,7 +87,7 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            scripts: {
+            jshint: {
                 files: [
                     //'app.js',
                     //'routes/**/*.js',
@@ -96,8 +97,18 @@ module.exports = function(grunt) {
                     'qa/**/*.js'
                 ],
                 tasks: [
-                    'cafemocha',
                     'jshint'
+                ]
+            },
+            mocha: {
+                files: [
+                    'app.js',
+                    'controllers/**/*.js',
+                    'routes/**/*.js',
+                    'lib/**/*.js'
+                ],
+                tasks: [
+                    'cafemocha'
                 ]
             },
             lessCompile: {
