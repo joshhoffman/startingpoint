@@ -1,4 +1,4 @@
-user = require '../models/User'
+user = require '../models/user'
 hashPassword = require 'password-hash'
 passport = require 'passport'
 

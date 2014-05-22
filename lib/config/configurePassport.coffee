@@ -1,5 +1,5 @@
 localStrategy = require('passport-local').Strategy
-userModel = require '../../models/User'
+userModel = require '../../models/user'
 passwordHash = require 'password-hash'
 
 exports.configPassport = (passport) ->

@@ -4,7 +4,7 @@ io = require 'socket.io'
 
 config = require './lib/config/configure'
 configRoutes = require './lib/config/configureRoutes'
-socket = require './socket/Socket'
+socket = require './socket/socket'
 
 app = express()
 
