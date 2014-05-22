@@ -32,7 +32,8 @@ module.exports = function(grunt) {
                     'lib/config/configure.js': 'lib/config/configure.coffee',
                     'lib/config/configureRoutes.js': 'lib/config/configureRoutes.coffee',
                     'lib/config/configurePassport.js': 'lib/config/configurePassport.coffee',
-                    'controllers/index.js': 'controllers/index.coffee'
+                    'controllers/index.js': 'controllers/index.coffee',
+                    'controllers/user.js': 'controllers/user.coffee'
                 }
             }
         },
@@ -51,14 +52,14 @@ module.exports = function(grunt) {
               ]
           },
         jshint: {
-            app: [
+            //app: [
                 //'app.js',
                 //'routes/**/*.js',
-                'controllers/**/*.js'
+                //'controllers/**/*.js'
                 //'Socket/**/*.js',
                 //'models/**/*.js',
                 //'lib/**/*.js'
-                ],
+                //],
             ember: [
                 'public/js/**/*.js',
                 '!public/js/app/templates/*.js'
