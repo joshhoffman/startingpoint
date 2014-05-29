@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         coffee: {
             compile: {
                 files: {
-                    //'test/test.js': 'test/test.coffee',
+                    'test/test.js': 'test/test.coffee',
                     'app.js': 'app.coffee',
                     'routes/index.js': 'routes/index.coffee',
                     'routes/login.js': 'routes/login.coffee',
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
                 configFile: 'coffeelint.json'
               },
               app: [
-                  //'test/*.coffee',
+                  'test/*.coffee',
                   '*.coffee',
                   'routes/*.coffee',
                   'models/*.coffee',
